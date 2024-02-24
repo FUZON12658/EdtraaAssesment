@@ -5,7 +5,7 @@
     { "src": "main.py", "use": "@vercel/python" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "main.py" }
+    { "src": "/(.*)", "dest": "main.py", "methods":["GET","POST","PUT","PATCH","OPTIONS"],"headers":{"Access-Control-Allow-Origin":"*"} }
   ],
   "env": {
     "APP_ENV": "production"
