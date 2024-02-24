@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 export default function PokemonInfo({ searchQuery }) {
   const [pokemons, setPokemons] = useState([]);
   const API_HOST_DEVELOPMENT = "http://127.0.0.1:8000/"
-  const API_HOST_PRODUCTION = "https://edtraa-assesment.vercel.app/"
+  const API_HOST_PRODUCTION = "https://pokedex-backend-3.onrender.com/"
 
 
   useEffect(() => {
