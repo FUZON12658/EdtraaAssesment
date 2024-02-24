@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 
 export default function PokemonInfo({ searchQuery }) {
   const [pokemons, setPokemons] = useState([]);
+  const API_HOST_DEVELOPMENT = "http://127.0.0.1:8000/"
+  const API_HOST_PRODUCTION = "https://edtraa-assesment.vercel.app/"
+
 
   useEffect(() => {
     async function fetchData() {
       try {
+
         // Check if data is present in cache
         const cachedData = localStorage.getItem("pokemonData");
         if (cachedData && !searchQuery) {
@@ -15,7 +19,7 @@ export default function PokemonInfo({ searchQuery }) {
           return; // Exit early, no need to fetch from API
         }
 
-        let url = "http://127.0.0.1:8000/v1/pokemons";
+        let url = `${API_HOST_PRODUCTION}v1/pokemons`;
         if (searchQuery) {
           url += `?query=${encodeURIComponent(searchQuery)}`;
         }
