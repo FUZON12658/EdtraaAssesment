@@ -41,7 +41,7 @@ async def getPokemons(query: str = None):
             # Fetch data from the PokeAPI in batches
             pokemon_data_batches = await fetch_pokemon_data_in_batches()
 
-            # Process the fetched Pokémon data and store it in the database
+            # Process the fetched Pokémon data and store it in the databaseg
             await process_and_store_pokemon_data(pokemon_data_batches, session)
 
             # Fetch Pokémon from the database again
