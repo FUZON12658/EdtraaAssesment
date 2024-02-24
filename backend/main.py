@@ -61,7 +61,20 @@ async def getPokemons(query: str = None):
     except Exception as e:
         # Log the error for debugging purposes
         print(f"An error occurred: {e}")
-git 
+
+        pokemons = await crud.get_pokemons(session)
+
+        # Filter pokemons based on query
+        if query:
+            query = query.lower()
+            pokemons = [
+                pokemon
+                for pokemon in pokemons
+                if query in pokemon.name.lower() or query in pokemon.type.lower()
+            ]
 
         return pokemons
+
+
+        
 
