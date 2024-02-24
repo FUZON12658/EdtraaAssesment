@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "name": "your-fastapi-app",
+  "builds": [
+    { "src": "main.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "main.py" }
+  ],
+  "env": {
+    "APP_ENV": "production"
+  }
+}
