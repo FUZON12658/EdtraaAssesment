@@ -8,6 +8,7 @@ from db import engine
 from schemas import PokemonModel
 from crud import CRUD
 from processPokemonData import fetch_pokemon_data_in_batches, process_and_store_pokemon_data
+import os
 
 app = FastAPI(
     title="PokeApi implementation",
@@ -18,7 +19,7 @@ app = FastAPI(
 # Allow all origins (*), allow specific headers, and allow all methods
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[os.getenv("allowed_origin")],
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["*"],
